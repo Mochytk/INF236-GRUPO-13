@@ -8,7 +8,7 @@ Este es el repositorio del *Grupo 13*, cuyos integrantes son:
 * **Tutor**: Javiera Osorio
 
 ## Wiki
-Puede acceder a la Wiki mediante el siguiente [enlace](https://github.com/Mochytk/INF236-GRUPO-13.wiki)
+Puede acceder a la Wiki mediante el siguiente [enlace](https://github.com/Mochytk/INF236-GRUPO-13/wiki)
 
 ## Videos
 * [Video Presentación Cliente]()

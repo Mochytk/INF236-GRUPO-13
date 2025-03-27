@@ -1,10 +1,10 @@
 # INF236-GRUPO-13
 
 Este es el repositorio del *Grupo 13*, cuyos integrantes son:
-* Int 1 - Rol
-* Int 2 - Rol
-* Int 3 - Rol
-* Int 4 - Rol
+* Rodrigo Ariel Cáceres Gaete - 202273616-k
+* Martin Ignacio ferrera Borquez - 202273552-K
+* Sergio Roberto Rojas Gutierrez - 202273619-4
+* José Andrés Yañez Chavez - 202273508-2
 * **Tutor**: Javiera Osorio
 
 ## Wiki

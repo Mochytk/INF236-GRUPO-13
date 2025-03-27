@@ -2,9 +2,9 @@
 
 Este es el repositorio del *Grupo 13*, cuyos integrantes son:
 * Rodrigo Ariel Cáceres Gaete - 202273616-k
-* Martin Ignacio ferrera Borquez - 202273552-K
-* Sergio Roberto Rojas Gutierrez - 202273619-4
-* José Andrés Yañez Chavez - 202273508-2
+* Martin Ignacio Ferrera Borquez - 202273552-K
+* Sergio Roberto Rojas Gutiérrez - 202273619-4
+* José Andrés Yáñez Chávez - 202273508-2
 * **Tutor**: Javiera Osorio
 
 ## Wiki

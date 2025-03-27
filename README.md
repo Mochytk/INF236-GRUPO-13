@@ -14,3 +14,7 @@ Puede acceder a la Wiki mediante el siguiente [enlace](https://github.com/Mochyt
 * [Video Presentación Cliente]()
 * [Video Presentación Avance 1]()
 * []()
+
+## Aspectos técnicos relevantes
+*Por ejemplo, cómo poder levantar ewl proyecto, etc, instrucciones de como hacerlo funcionar*
+El proyecto se baso en la documentación disponible en:

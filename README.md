@@ -16,5 +16,7 @@ Puede acceder a la Wiki mediante el siguiente [enlace](https://github.com/Mochyt
 * []()
 
 ## Aspectos técnicos relevantes
-*Por ejemplo, cómo poder levantar ewl proyecto, etc, instrucciones de como hacerlo funcionar*
+*Por ejemplo, cómo poder levantar el proyecto, instrucciones de como hacerlo funcionar, etc.*
+
 El proyecto se baso en la documentación disponible en:
+*apartado en construcción*

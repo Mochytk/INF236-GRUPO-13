@@ -10,7 +10,7 @@ Este es el repositorio del *Grupo 13*, cuyos integrantes son:
 ## Wiki
 Puede acceder a la Wiki mediante el siguiente [enlace](https://github.com/Mochytk/INF236-GRUPO-13/wiki)
 
-## Videos
+## Videos (Apartado en Construcción)
 * [Video Presentación Cliente]()
 * [Video Presentación Avance 1]()
 * []()

@@ -9,12 +9,12 @@ class Ensayo(models.Model):
     title = models.CharField(max_length=200)
     created_by = models.ForeignKey(Usuario, on_delete=models.CASCADE)
 
-class Question(models.Model):
+class Pregunta(models.Model):
     exam = models.ForeignKey(Ensayo, on_delete=models.CASCADE, related_name='questions')
     text = models.TextField()
     correct_answer = models.CharField(max_length=1)  # Ej: 'A', 'B', etc.
 
-class StudentAttempt(models.Model):
+class Intento(models.Model):
     student = models.ForeignKey(Usuario, on_delete=models.CASCADE)
     exam = models.ForeignKey(Ensayo, on_delete=models.CASCADE)
     score = models.FloatField()

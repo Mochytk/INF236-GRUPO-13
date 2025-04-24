@@ -1,10 +1,14 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import HomePage from '../components/HomePage.vue';
 import AlumnoDashboard from '../components/AlumnoDashboard.vue';
+import ComoFunciona from '../components/ComoFunciona.vue';
+import Contacto from '../components/Contacto.vue';  
 
 const routes = [
   { path: '/', component: HomePage },
   { path: '/alumno', component: AlumnoDashboard },
+  { path: '/como-funciona', component: ComoFunciona},
+  { path: '/contacto', component: Contacto},
 ];
 
 const router = createRouter({

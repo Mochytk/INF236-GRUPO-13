@@ -17,8 +17,12 @@ import { RouterLink } from 'vue-router';
 
     <div class="info-buttons">
       <button class="secondary-button">Ver ejemplo de ensayo</button>
-      <button class="secondary-button">Cómo funciona la plataforma</button>
-      <button class="secondary-button">Contáctanos</button>
+      <router-link to="/como-funciona">
+        <button class="secondary-button">Cómo funciona la plataforma</button>
+      </router-link>
+      <router-link to="/contacto">
+        <button class="secondary-button">Contáctanos</button>
+      </router-link>
     </div>
   </div>
 </template>

@@ -1,24 +1,26 @@
-<script setup>
-import { RouterLink } from 'vue-router';
-</script>
-
-
 <template>
   <div class="home-container">
-    <h1 class="title">Plataforma Ensayos PAES</h1>
+    <h1 class="titulo">Bienvenido</h1>
 
-    <div class="button-group">
-      <router-link to="/alumno">
-        <button class="main-button">Iniciar sesión como Alumno</button>
-      </router-link>
-      <router-link to="/docente">
-        <button class="main-button">Iniciar sesión como Docente</button>
-      </router-link>
-      <button class="main-button">Iniciar sesión como Visualizador</button>
+    <div class="contenido">
+      <div class="materias">
+        <img :src="imgs.lenguaje" alt="Lenguaje" />
+        <img :src="imgs.matematicas" alt="Matemáticas" />
+        <img :src="imgs.historia" alt="Historia" />
+        <img :src="imgs.ciencias" alt="Ciencias" />
+      </div>
+
+      <div class="login">
+        <p class="login-label">Login</p>
+        <button class="login-input">correo</button>
+        <button class="login-input">contraseña</button>
+        <RouterLink to="/alumno">
+        <button class="acceso-provisorio">Acceder como Alumno (provisorio)</button>
+        </RouterLink>
+      </div>
     </div>
 
-    <div class="info-buttons">
-      <button class="secondary-button">Ver ejemplo de ensayo</button>
+    <div class="info-botones">
       <router-link to="/como-funciona">
         <button class="secondary-button">Cómo funciona la plataforma</button>
       </router-link>
@@ -29,17 +31,84 @@ import { RouterLink } from 'vue-router';
   </div>
 </template>
 
+<script setup>
+
+import { RouterLink } from 'vue-router';
+
+const imgs = {
+  lenguaje: '/img/lenguaje.jpg',
+  matematicas: '/img/matematicas.jpg',
+  historia: '/img/historia.jpg',
+  ciencias: '/img/ciencias.jpg',
+};
+</script>
+
 <style scoped>
 .home-container {
-  text-align: center;
-  padding: 50px 20px;
+  color: white;
+  padding: 40px 20px;
+  min-height: 100vh;
   font-family: 'Segoe UI', sans-serif;
+  text-align: center;
 }
 
-.title {
+.titulo {
   font-size: 3em;
   margin-bottom: 40px;
-  color: #2c3e50;
+}
+
+.contenido {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.materias {
+  display: grid;
+  grid-template-columns: repeat(2, 130px);
+  gap: 20px;
+}
+
+.materias img {
+  width: 130px;
+  height: 130px;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 0 10px #00000044;
+}
+
+.login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.login-label {
+  font-size: 1.4em;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.login-input {
+  width: 200px;
+  height: 45px;
+  font-size: 1.1em;
+  background-color: #145a32;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.info-botones {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
 }
 
 .button-group, .info-buttons {
@@ -67,4 +136,16 @@ import { RouterLink } from 'vue-router';
   background-color: #ecf0f1;
   color: #2c3e50;
 }
+
+.acceso-provisorio {
+  margin-top: 10px;
+  background-color: #2ecc71;
+  color: white;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 10px;
+  font-size: 1em;
+  cursor: pointer;
+}
+
 </style>

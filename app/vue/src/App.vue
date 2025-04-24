@@ -1,14 +1,35 @@
 <template>
-  <router-view />
+  <div class="fondo-pizarra">
+    <VolverButton />
+    <router-view />
+  </div>
 </template>
 
-<style scoped>
-  :global(body) {
-    background: -moz-radial-gradient(center, ellipse cover,  #63856a 1%, #3c5a40 100%); /* FF3.6+ */
-    background: -webkit-radial-gradient(center, ellipse cover,  #63856a 1%,#3c5a40 100%); /* Chrome10+,Safari5.1+ */
-    background: -o-radial-gradient(center, ellipse cover,  #63856a 1%,#3c5a40 100%); /* Opera 12+ */
-    background: radial-gradient(ellipse at center,  #63856a 1%,#3c5a40 100%); /* W3C */
-    color: white;
-    font-family: 'Segoe UI', sans-serif;
-  }
+
+<style>
+html, body {
+  margin: 0;
+  padding: 0;
+}
 </style>
+
+
+<style>
+.fondo-pizarra {
+  min-height: 100vh;
+  background-image: url('/img/fondo_pizarra.png');
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+}
+</style>
+
+
+
+
+<script setup>
+import VolverButton from './components/VolverButton.vue';
+</script>
+

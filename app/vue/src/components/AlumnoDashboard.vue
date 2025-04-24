@@ -1,7 +1,9 @@
 <template>
   <div class="dashboard">
     <h2>Bienvenido, Alumno</h2>
+    <router-link to="/materias">
     <button class="action-button">📘 Hacer un ensayo</button>
+    </router-link>
     <button class="action-button">📊 Ver mis resultados</button>
   </div>
 </template>

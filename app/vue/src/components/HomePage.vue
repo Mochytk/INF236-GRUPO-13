@@ -11,7 +11,9 @@ import { RouterLink } from 'vue-router';
       <router-link to="/alumno">
         <button class="main-button">Iniciar sesión como Alumno</button>
       </router-link>
-      <button class="main-button">Iniciar sesión como Docente</button>
+      <router-link to="/docente">
+        <button class="main-button">Iniciar sesión como Docente</button>
+      </router-link>
       <button class="main-button">Iniciar sesión como Visualizador</button>
     </div>
 

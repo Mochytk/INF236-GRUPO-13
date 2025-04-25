@@ -12,10 +12,13 @@
 
       <div class="login">
         <p class="login-label">Login</p>
-        <button class="login-input">correo</button>
-        <button class="login-input">contraseña</button>
+        <input type="text" class="login-input" placeholder="Correo" />
+        <input type="password" class="login-input" placeholder="Contraseña" />
         <RouterLink to="/alumno">
         <button class="acceso-provisorio">Acceder como Alumno (provisorio)</button>
+        </RouterLink>
+        <RouterLink to="/docente">
+        <button class="acceso-provisorio">Acceder como Docente (provisorio)</button>
         </RouterLink>
       </div>
     </div>

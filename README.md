@@ -44,5 +44,24 @@ Luego, debemos iniciar el frontend (Vue), para lo cual abrimos una terminal en l
 
 `npm run dev`
 
-El proyecto está basado en la documentación disponible en:
+
+## Posibles errores y sus soluciones
+  1):
+  ~~~
+'npm : No se puede cargar el archivo C:\Program Files\nodejs\npm.ps1 porque la ejecución de 
+scripts está deshabilitada en este sistema. Para obtener más información, consulta el tema 
+about_Execution_Policies en https:/go.microsoft.com/fwlink/?LinkID=135170.
+En línea: 1 Carácter: 1
++ npm run dev
++ ~~~
++ CategoryInfo          : SecurityError: (:) [], PSSecurityException
++ FullyQualifiedErrorId : UnauthorizedAccess'
+~~~
+
+  ->Este error puede ocurrir si en la terminal al dirigirse al directorio "INF236-GRUPO-13\app\vue>" se introduce el comando de "npm run dev". La razón es que la PowerShell bloquea la ejecución de scripts por razones de seguridad, y npm.ps1 es un script que forma parte de Node.js
+  
+  ->Solución: en la misma terminal con el mismo directorio se debe introducir exactamente este comando: "Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass". Esto permitirá ejecutar scripts solo en esta sesión de PowerShell, por lo que si se cierra el editor de código se deberá volver a hacer el mismo proceso una vez abierto nuevamente el proyecto.
+
+
+### El proyecto está basado en la documentación disponible en:
 *apartado en construcción*

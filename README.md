@@ -34,7 +34,7 @@ Una vez cumplidos estos requisitos, se deberán ejecutar los siguientes comandos
 - `pip install djangorestframework-simplejwt`
 
 ### Desplegar el proyecto
-Una vez finalizada la configuración inicial, debemos hacer funcionar la página. Para ello, lo primero será inicializar el backend (Django), para lo cual abrimos la terminal desde la carpeta "paes" y ejecutamos el siguiente comando:
+Una vez finalizada la configuración inicial, debemos hacer funcionar la página. Para ello, lo primero será inicializar el backend (Django + Django REST), para lo cual abrimos la terminal desde la carpeta "paes" y ejecutamos el siguiente comando:
 
 `python manage.py runserver`
 
@@ -44,8 +44,10 @@ Luego, debemos iniciar el frontend (Vue), para lo cual abrimos una terminal en l
 
 `npm run dev`
 
+Nota: el comando `npm install` solo es necesario para la primera ejecución.
 
-## Posibles errores y sus soluciones
+
+### Posibles errores y sus soluciones
   1):
   ~~~
 'npm : No se puede cargar el archivo C:\Program Files\nodejs\npm.ps1 porque la ejecución de 
@@ -58,9 +60,9 @@ En línea: 1 Carácter: 1
 + FullyQualifiedErrorId : UnauthorizedAccess'
 ~~~
 
-  ->Este error puede ocurrir si en la terminal al dirigirse al directorio "INF236-GRUPO-13\app\vue>" se introduce el comando de "npm run dev". La razón es que la PowerShell bloquea la ejecución de scripts por razones de seguridad, y npm.ps1 es un script que forma parte de Node.js
+  ->Este error puede ocurrir si en la terminal al dirigirse al directorio "INF236-GRUPO-13\app\vue>" se introduce el comando de `npm run dev`. La razón es que, en algunos casos, PowerShell bloquea la ejecución de scripts por razones de seguridad, y npm.ps1 es un script que forma parte de Node.js
   
-  ->Solución: en la misma terminal con el mismo directorio se debe introducir exactamente este comando: "Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass". Esto permitirá ejecutar scripts solo en esta sesión de PowerShell, por lo que si se cierra el editor de código se deberá volver a hacer el mismo proceso una vez abierto nuevamente el proyecto.
+  ->Solución: en la misma terminal y en el mismo directorio se debe introducir exactamente este comando: `Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass`. Esto permitirá ejecutar scripts, pero solo en esta sesión de PowerShell, por lo que si se cierra el editor de código se deberá volver a hacer el mismo proceso una vez abierto nuevamente el proyecto.
 
 
 ### El proyecto está basado en la documentación disponible en:

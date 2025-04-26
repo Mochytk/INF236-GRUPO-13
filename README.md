@@ -46,6 +46,8 @@ Luego, debemos iniciar el frontend (Vue), para lo cual abrimos una terminal en l
 
 Nota: el comando `npm install` solo es necesario para la primera ejecución.
 
+Finalmente para acceder a la página se debe copiar la url que se indice en 'Local:', y pegarla en su buscador de preferencia donde se podrá navegar como desee.
+
 
 ### Posibles errores y sus soluciones
   1):

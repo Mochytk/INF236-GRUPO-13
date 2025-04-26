@@ -27,8 +27,8 @@
       <router-link to="/como-funciona">
         <button class="secondary-button">Cómo funciona la plataforma</button>
       </router-link>
-      <router-link to="/contacto">
-        <button class="secondary-button">Contáctanos</button>
+      <router-link to="/about">
+        <button class="secondary-button">Sobre nosotros</button>
       </router-link>
     </div>
   </div>

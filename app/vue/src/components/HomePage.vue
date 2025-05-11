@@ -12,8 +12,10 @@
 
       <div class="login">
         <p class="login-label">Login</p>
-        <input type="text" class="login-input" placeholder="Correo" />
-        <input type="password" class="login-input" placeholder="Contraseña" />
+        <input type="text" class="login-input" placeholder="Correo" v-model="email"/>
+        <input type="password" class="login-input" placeholder="Contraseña" v-model="password"/>
+        <button class="login-input" @click="login">Iniciar sesión</button>
+        <p v-if="errorMessage" class="error-message">{{ errorMessage }}</p>
         <RouterLink to="/alumno">
         <button class="acceso-provisorio">Acceder como Alumno (provisorio)</button>
         </RouterLink>
@@ -37,6 +39,29 @@
 <script setup>
 
 import { RouterLink } from 'vue-router';
+import { ref } from 'vue';
+import axios from 'axios';
+
+const email = ref('');
+const password = ref('');
+const errorMessage = ref('');
+
+const login = async () => {
+  try {
+    const response = await axios.post('/api/usuarios/login/', {
+      email: email.value,
+      password: password.value,
+    });
+    alert(`Inicio de sesión exitoso. Rol: ${response.data.role}`);
+    if (response.data.role === 'alumno') {
+      window.location.href = '/alumno';
+    } else if (response.data.role === 'docente') {
+      window.location.href = '/docente';
+    }
+  } catch (error) {
+    errorMessage.value = error.response?.data?.error || 'Inicio de sesión fallido';
+  }
+};
 
 const imgs = {
   lenguaje: '/img/lenguaje.jpg',

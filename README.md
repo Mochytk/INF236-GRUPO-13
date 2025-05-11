@@ -50,7 +50,7 @@ Finalmente para acceder a la página se debe copiar la url que se indice en 'Loc
 
 
 ### Posibles errores y sus soluciones
-  1):
+  1)
   ~~~
 'npm : No se puede cargar el archivo C:\Program Files\nodejs\npm.ps1 porque la ejecución de 
 scripts está deshabilitada en este sistema. Para obtener más información, consulta el tema 
@@ -62,10 +62,37 @@ En línea: 1 Carácter: 1
 + FullyQualifiedErrorId : UnauthorizedAccess'
 ~~~
 
-  ->Este error puede ocurrir si en la terminal al dirigirse al directorio "INF236-GRUPO-13\app\vue>" se introduce el comando de `npm run dev`. La razón es que, en algunos casos, PowerShell bloquea la ejecución de scripts por razones de seguridad, y npm.ps1 es un script que forma parte de Node.js
+  -> Este error puede ocurrir en Windows si, en la terminal, al dirigirse al directorio "INF236-GRUPO-13\app\vue>", se introduce el comando `npm run dev`. La razón es que, en algunos casos, PowerShell bloquea la ejecución de scripts por razones de seguridad, y npm.ps1 es un script que forma parte de Node.js
   
-  ->Solución: en la misma terminal y en el mismo directorio se debe introducir exactamente este comando: `Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass`. Esto permitirá ejecutar scripts, pero solo en esta sesión de PowerShell, por lo que si se cierra el editor de código se deberá volver a hacer el mismo proceso una vez abierto nuevamente el proyecto.
+  -> Solución: en la misma terminal y en el mismo directorio se debe introducir exactamente este comando: `Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass`. Esto permitirá ejecutar scripts, pero solo en esta sesión de PowerShell, por lo que si se cierra el editor de código se deberá volver a hacer el mismo proceso una vez abierto nuevamente el proyecto.
+  
+  2)
+  En algunas distribuciones de Linux existe la posibilidad de que al tratar de instalar librerías de Python aparezca el siguiente error:
+  ~~~
+  error: externally-managed-environment
 
+× This environment is externally managed
+╰─> To install Python packages system-wide, try apt install
+    python3-xyz, where xyz is the package you are trying to
+    install.
+
+    If you wish to install a non-Debian-packaged Python package,
+    create a virtual environment using python3 -m venv path/to/venv.
+    Then use path/to/venv/bin/python and path/to/venv/bin/pip. Make
+    sure you have python3-full installed.
+
+    If you wish to install a non-Debian packaged Python application,
+    it may be easiest to use pipx install xyz, which will manage a
+    virtual environment for you. Make sure you have pipx installed.
+
+    See /usr/share/doc/python3.11/README.venv for more information.
+
+note: If you believe this is a mistake, please contact your Python installation or OS distribution provider. You can override this, at the risk of breaking your Python installation or OS, by passing --break-system-packages.
+hint: See PEP 668 for the detailed specification.
+  ~~~
+  -> Este error puede ocurrir debido a que, por defecto en algunas distribuciones Linux, Python evita que se puedan hacer cambios en el sistema por motivos de seguridad.
+  
+  -> Solución: Es posible cambiar la configuración de cómo se gestionan los paquetes del sistema usando el siguiente comando: `python3 -m pip config set global.break-system-packages true`.
 
 ### El proyecto está basado en la documentación disponible en:
 *apartado en construcción*

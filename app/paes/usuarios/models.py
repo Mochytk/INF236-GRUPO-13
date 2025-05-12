@@ -1,13 +1,14 @@
+from django.contrib.auth.models import AbstractUser
 from django.db import models
 
-class Usuario(models.Model):
-	nombre = models.CharField(max_length=100)
-	email = models.EmailField(unique=True)
-	fecha_creacion = models.DateTimeField(auto_now_add=True)
-	rol = models.CharField(max_length=50, choices=[
-		('alumno', 'Alumno'),
-		('docente', 'Docente'),
-	], default='alumno')
-
-	def __str__(self):
-		return self.nombre
+class Usuario(AbstractUser):
+    nombre = models.CharField(max_length=30, blank=True)
+    apellidos = models.CharField(max_length=30, blank=True)
+    correo = models.EmailField(max_length=254, blank=True)
+    ROL = (
+        ('alumno', 'Alumno'),
+        ('docente', 'Docente'),
+    )
+    rol = models.CharField(max_length=10, choices=ROL, default='alumno')
+    def __str__(self):
+        return self.username

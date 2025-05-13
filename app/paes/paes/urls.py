@@ -19,6 +19,8 @@ from django.urls import path, include
 from rest_framework import routers
 from ensayos.views import ExamViewSet
 from usuarios.views import login, current_user
+from django.urls import path, include
+from usuarios.views import LoginAPIView
 
 router = routers.DefaultRouter()
 router.register(r'exams', ExamViewSet)
@@ -29,4 +31,5 @@ urlpatterns = [
     path('api-auth/', include('rest_framework.urls')),
     path('login/', login, name='login'),
     path('current_user/', current_user, name='current_user'),
+    path('api/login/', LoginAPIView.as_view(), name='api_login'),
 ]

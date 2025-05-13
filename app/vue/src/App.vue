@@ -1,5 +1,6 @@
 <template>
   <div class="fondo-pizarra">
+    <LoginForm />
     <VolverButton />
     <router-view />
   </div>
@@ -13,7 +14,6 @@ html, body {
 }
 </style>
 
-
 <style>
 .fondo-pizarra {
   min-height: 100vh;
@@ -22,14 +22,11 @@ html, body {
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
-
 }
 </style>
 
-
-
-
 <script setup>
 import VolverButton from './components/VolverButton.vue';
+import LoginForm from './components/LoginForm.vue';
 </script>
 

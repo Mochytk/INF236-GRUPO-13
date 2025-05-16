@@ -27,6 +27,6 @@ html, body {
 
 <script setup>
 import VolverButton from './components/VolverButton.vue';
-import LoginForm from './components/LoginForm.vue';
+//import LoginForm from './components/LoginForm.vue';
 </script>
 

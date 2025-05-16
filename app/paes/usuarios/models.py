@@ -4,7 +4,7 @@ from django.db import models
 class Usuario(AbstractUser):
     nombre = models.CharField(max_length=30, blank=True)
     apellidos = models.CharField(max_length=30, blank=True)
-    correo = models.EmailField(max_length=254, blank=True)
+    email = models.EmailField(max_length=254, blank=True)
     ROL = (
         ('alumno', 'Alumno'),
         ('docente', 'Docente'),

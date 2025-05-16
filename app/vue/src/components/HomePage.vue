@@ -1,7 +1,9 @@
 <template>
   <div class="home-container">
     <h1 class="titulo">Bienvenido</h1>
-
+    <router-link to="/login">
+      <button>Ir al Login Oficial</button>
+    </router-link>
     <div class="contenido">
       <div class="materias">
         <img :src="imgs.lenguaje" alt="Lenguaje" />
@@ -17,10 +19,10 @@
         <button class="login-input" @click="handleLogin">Iniciar sesión</button>
         <p v-if="errorMessage" class="error-message">{{ errorMessage }}</p>
         <RouterLink to="/alumno">
-        <button class="acceso-provisorio">Acceder como Alumno (provisorio)</button>
+        <button class="acceso-provisorio">Acceder como Alumno (provisorio, ARREGLAR PAGINA INDIVIDUAL)</button>
         </RouterLink>
         <RouterLink to="/docente">
-        <button class="acceso-provisorio">Acceder como Docente (provisorio)</button>
+        <button class="acceso-provisorio">Acceder como Docente (provisorio, ARREGLAR PAGINA INDIVIDUAL)</button>
         </RouterLink>
       </div>
     </div>
@@ -35,11 +37,12 @@
     </div>
   </div>
 </template>
-<script setup>
 
+
+
+<script setup>import LoginForm from './LoginForm.vue';
 import { RouterLink } from 'vue-router';
 import { ref } from 'vue';
-import { login } from '@/api/auth';
 import axios from 'axios';
 
 const email = ref('');
@@ -60,7 +63,7 @@ const handleLogin = async () => {
       window.location.href = '/docente';
     }
   } catch (error) {
-    errorMessage.value = error.response?.data?.error || 'Inicio de sesión fallido';
+    errorMessage.value = error.response?.data?.error || 'Inicio de sesiasón fallido';
   }
 };
 
@@ -71,6 +74,7 @@ const imgs = {
   ciencias: '/img/ciencias.jpg',
 };
 </script>
+
 
 <style scoped>
 .home-container {

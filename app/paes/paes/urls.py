@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
 from ensayos.views import ExamViewSet
-from usuarios.views import login, current_user
+from usuarios.views import LoginAPIView, current_user
 from django.urls import path, include
 from usuarios.views import LoginAPIView
 
@@ -29,7 +29,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
     path('api-auth/', include('rest_framework.urls')),
-    path('login/', login, name='login'),
+    path('api/login/', LoginAPIView.as_view(), name='login'),
     path('current_user/', current_user, name='current_user'),
-    path('api/login/', LoginAPIView.as_view(), name='api_login'),
+    path('api/login/', LoginAPIView.as_view(), name='login'),
 ]

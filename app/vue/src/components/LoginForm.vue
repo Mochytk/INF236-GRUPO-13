@@ -3,13 +3,13 @@
     <h2>Iniciar Sesión</h2>
     <form @submit.prevent="login">
       <div>
-        <label for="username">Usuario:</label>
-        <input type="text" id="username" v-model="username" required>
+        <label for="email">Emaaaail:</label>
+        <input type="email" v-model="email" required />
       </div>
 
       <div>
         <label for="password">Contraseña:</label>
-        <input type="password" id="password" v-model="password" required>
+        <input type="password" v-model="contraseña" required />
       </div>
 
       <button type="submit">Ingresar</button>
@@ -23,11 +23,10 @@
 import axios from 'axios'
 
 export default {
-  name: 'LoginForm',
   data() {
     return {
-      username: '',
-      password: '',
+      email: '',
+      contraseña: '',
       error: ''
     }
   },
@@ -35,20 +34,36 @@ export default {
     async login() {
       try {
         const response = await axios.post('http://127.0.0.1:8000/api/login/', {
-          username: this.username,
-          password: this.password
-        })
+          email: this.email,
+          contraseña: this.contraseña
+        });
 
-        console.log('Login exitoso', response.data)
-        // Aquí podrías guardar el token o el usuario en localStorage o Vuex si quieres
+        const { token, rol, username } = response.data;
+
+        // Guardamos token y rol (puedes usar localStorage o Vuex)
+        localStorage.setItem('token', token);
+        localStorage.setItem('rol', rol);
+
+        // Redirigir según el rol
+        if (rol.toLowerCase() === 'alumno') {
+          this.$router.push('/alumno');
+        } else if (rol.toLowerCase() === 'docente') {
+          this.$router.push('/docente');
+        }
+        else{
+          console.warn('Rol no reconocido:', rol);
+          this.error = 'Rol no reconocido. Contacte al administrador.';
+        }
+
       } catch (err) {
-        console.error('Error de login', err)
-        this.error = 'Usuario o contraseña incorrectos'
+        console.error('Error de login', err.response?.data || err.message);
+        this.error = err.response?.data?.error || 'Ocurrió un error al iniciar sesión';
       }
     }
   }
 }
 </script>
+
 
 <style scoped>
 .login-container {

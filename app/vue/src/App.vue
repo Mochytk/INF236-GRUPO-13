@@ -1,7 +1,7 @@
 <template>
   <div class="fondo-pizarra">
     <LoginForm />
-    <VolverButton v-if="$route.path !== '/'" />
+    <VolverButton v-if="$route.path !== '/' && $route.path !== '/acceso-restringido'" />
     <router-view />
   </div>
 </template>

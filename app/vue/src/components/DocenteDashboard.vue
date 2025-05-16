@@ -33,7 +33,7 @@ export default {
   mounted() {
     // Protección: si no está logeado, redirige
     if (!localStorage.getItem('token')) {
-      this.$router.push('/');
+      this.$router.push('/acceso-restringido');
     }
   }
 }

@@ -85,7 +85,7 @@ export default {
         }
 
       } catch (err) {
-        console.error('Error de login', err.response?.data || err.message);
+        console.error('Error de inicio de sesión', err.response?.data || err.message);
         this.error = err.response?.data?.error || 'Ocurrió un error al iniciar sesión';
       }
     }

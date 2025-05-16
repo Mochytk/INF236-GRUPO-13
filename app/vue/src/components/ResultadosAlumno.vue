@@ -5,6 +5,23 @@
     </div>
 </template>
 
+<script>
+export default {
+data() {
+    return {
+        nombreUsuario: localStorage.getItem('username') || 'Docente'
+    }
+},
+
+mounted() {
+    // Protección: si no está logeado, redirige
+    if (!localStorage.getItem('token')) {
+        this.$router.push('/acceso-restringido');
+    }
+}
+}
+</script>
+
 <style scoped>
 h1 {
     color: white;

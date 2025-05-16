@@ -23,18 +23,38 @@
     </div>
   </template>
   
-  <script setup>
-  const imagenes = {
+<script setup>
+import { ref, onMounted } from 'vue';
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
+const imagenes = {
     lenguaje: '/img/lenguaje.jpg',
     matematicas: '/img/matematicas.jpg',
     historia: '/img/historia.jpg',
     ciencias: '/img/ciencias.jpg',
-  }
-  
-  function seleccionarMateria(nombre) {
+};
+
+function verResultados() {
+    alert("Aquí se mostrarán tus resultados.");
+}
+
+function logout() {
+    localStorage.clear();
+    router.push('/');
+}
+
+function seleccionarMateria(nombre) {
     alert(`Has seleccionado: ${nombre}`);
-  }
-  </script>
+}
+
+onMounted(() => {
+    // Protección: si no está logeado, redirige
+    if (!localStorage.getItem('token')) {
+        router.push('/acceso-restringido');
+    }
+});
+</script>
   
   <style scoped>
   .materias-container {

@@ -1,43 +1,62 @@
 <template>
-    <div class="dashboard">
-        <h2>Bienvenido, {{ rol === 'alumno' ? 'Alumno' : 'Docente' }}</h2>
-        <router-link v-if="rol === 'alumno'" to="/materias">
-        <button class="action-button">📘 Hacer un ensayo</button>
-        </router-link>
-        <router-link v-if="rol === 'alumno'" to="/alumno/resultados">
-        <button class="action-button">📊 Ver mis resultados</button>
-        </router-link>
-        <router-link v-if="rol === 'docente'" to="/docente/historial">
-        <button class="action-button">📘 Ver historial de ensayos</button>
-        </router-link>
-        <router-link v-if="rol === 'docente'" to="/docente/ranking">
-        <button class="action-button">📊 Ver ránking de ensayos</button>
-        </router-link>
+    <div class="dashboard-container">
+    <h1>Bienvenido, Alumno {{ nombreUsuario }}</h1>
+
+        <div class="botones">
+            <button @click="hacerEnsayo">Realizar Ensayo</button>
+            <button @click="verResultados">Ver Resultados</button>
+            <button @click="logout">Cerrar Sesión</button>
+        </div>
     </div>
 </template>
 
-<script setup>
-import { useRoute } from 'vue-router';
-
-const route = useRoute();
-const rol = route.params.rol;
+<script>
+export default {
+    data() {
+        return {
+            nombreUsuario: localStorage.getItem('username') || 'Alumno'
+        }
+    },
+    methods: {
+        hacerEnsayo() {
+        // Aquí irá navegación o funcionalidad real
+            alert("Funcionalidad para hacer ensayos próximamente.");
+        },
+        verResultados() {
+            alert("Aquí se mostrarán tus resultados.");
+        },
+        logout() {
+            localStorage.clear();
+            this.$router.push('/');
+        }
+    },
+    mounted() {
+      // Protección: si no está logeado, redirige
+    if (!localStorage.getItem('token')) {
+        this.$router.push('/');
+        }
+    }
+}
 </script>
 
 <style scoped>
-.dashboard {
+.dashboard-container {
     text-align: center;
-    margin-top: 80px;
-    font-family: 'Segoe UI', sans-serif;
+    padding: 40px;
+    color: white;
 }
 
-.action-button {
-    margin: 20px;
-    padding: 15px 25px;
-    font-size: 1.2em;
+.botones button {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #2ecc71;
     border: none;
     border-radius: 10px;
-    background-color: #27ae60;
-    color: white;
     cursor: pointer;
 }
-</style>
+
+.botones button:hover {
+    background-color: #27ae60;
+}
+</style>  

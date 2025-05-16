@@ -1,7 +1,7 @@
 <template>
     <button class="volver" @click="goBack">🔙 Volver</button>
-  </template>
-  
+</template>
+
   <script setup>
   import { useRouter } from 'vue-router';
   

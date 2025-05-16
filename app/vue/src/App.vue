@@ -1,7 +1,7 @@
 <template>
   <div class="fondo-pizarra">
     <LoginForm />
-    <VolverButton />
+    <VolverButton v-if="$route.path !== '/'" />
     <router-view />
   </div>
 </template>

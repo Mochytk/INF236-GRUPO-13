@@ -1,4 +1,4 @@
 Información temporal:
 
-Usuario: admin
+Usuario: usm
 Contraseña: usm

@@ -1,9 +1,6 @@
 <template>
   <div class="home-container">
     <h1 class="titulo">Bienvenido</h1>
-    <router-link to="/login">
-      <button>Ir al Login Oficial</button>
-    </router-link>
     <div class="contenido">
       <div class="materias">
         <img :src="imgs.lenguaje" alt="Lenguaje" />
@@ -13,17 +10,22 @@
       </div>
 
       <div class="login">
-        <p class="login-label">Login</p>
-        <input type="text" class="login-input" placeholder="Correo" v-model="email"/>
-        <input type="password" class="login-input" placeholder="Contraseña" v-model="password"/>
-        <button class="login-input" @click="handleLogin">Iniciar sesión</button>
-        <p v-if="errorMessage" class="error-message">{{ errorMessage }}</p>
-        <RouterLink to="/alumno">
-        <button class="acceso-provisorio">Acceder como Alumno (provisorio, ARREGLAR PAGINA INDIVIDUAL)</button>
-        </RouterLink>
-        <RouterLink to="/docente">
-        <button class="acceso-provisorio">Acceder como Docente (provisorio, ARREGLAR PAGINA INDIVIDUAL)</button>
-        </RouterLink>
+        <h2>Iniciar Sesión</h2>
+        <form @submit.prevent="login">
+          <div>
+            <label for="email">Correo: </label>
+            <input type="email" v-model="email" required />
+          </div>
+
+          <div>
+            <label for="password">Contraseña: </label>
+            <input type="password" v-model="contraseña" required />
+          </div>
+
+          <button class="main-button" type="submit">Ingresar</button>
+
+          <div v-if="error" style="color: red;">{{ error }}</div>
+        </form>
       </div>
     </div>
 
@@ -40,39 +42,56 @@
 
 
 
-<script setup>import LoginForm from './LoginForm.vue';
-import { RouterLink } from 'vue-router';
-import { ref } from 'vue';
-import axios from 'axios';
+<script>
+import axios from 'axios'
 
-const email = ref('');
-const password = ref('');
-const errorMessage = ref('');
-
-const handleLogin = async () => {
-  try {
-    const response = await axios.post('/api/usuarios/login/', {
-      email: email.value,
-      password: password.value,
-    });
-    localStorage.setItem('token', response.data.token);
-    alert(`Inicio de sesión exitoso. Rol: ${response.data.role}`);
-    if (response.data.role === 'alumno') {
-      window.location.href = '/alumno';
-    } else if (response.data.role === 'docente') {
-      window.location.href = '/docente';
+export default {
+  data() {
+    return {
+      email: '',
+      contraseña: '',
+      error: '',
+      imgs :  {
+        lenguaje: '/img/lenguaje.jpg',
+        matematicas: '/img/matematicas.jpg',
+        historia: '/img/historia.jpg',
+        ciencias: '/img/ciencias.jpg',
+      }
     }
-  } catch (error) {
-    errorMessage.value = error.response?.data?.error || 'Inicio de sesiasón fallido';
-  }
-};
+  },
+  methods: {
+    async login() {
+      try {
+        const response = await axios.post('http://127.0.0.1:8000/api/login/', {
+          email: this.email,
+          contraseña: this.contraseña
+        });
 
-const imgs = {
-  lenguaje: '/img/lenguaje.jpg',
-  matematicas: '/img/matematicas.jpg',
-  historia: '/img/historia.jpg',
-  ciencias: '/img/ciencias.jpg',
-};
+        const { token, rol, username } = response.data;
+
+        // Guardamos token y rol (puedes usar localStorage o Vuex)
+        localStorage.setItem('token', token);
+        localStorage.setItem('rol', rol);
+
+        // Redirigir según el rol
+        if (rol.toLowerCase() === 'alumno') {
+          this.$router.push('/alumno');
+        } else if (rol.toLowerCase() === 'docente') {
+          this.$router.push('/docente');
+        }
+        else{
+          console.warn('Rol no reconocido:', rol);
+          this.error = 'Rol no reconocido. Contacte al administrador.';
+        }
+
+      } catch (err) {
+        console.error('Error de login', err.response?.data || err.message);
+        this.error = err.response?.data?.error || 'Ocurrió un error al iniciar sesión';
+      }
+    }
+  }
+}
+
 </script>
 
 
@@ -115,7 +134,7 @@ const imgs = {
 .login {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: left;
   gap: 15px;
 }
 

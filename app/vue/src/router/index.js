@@ -9,19 +9,16 @@ import Ranking from '../components/Ranking.vue';
 import ResultadosAlumno from '../components/ResultadosAlumno.vue';
 import AlumnoDashboard from '../components/AlumnoDashboard.vue';
 import DocenteDashboard from '../components/DocenteDashboard.vue';
-import LoginForm from '../components/LoginForm.vue';
 
 const routes = [
   { path: '/materias', component: SeleccionarMateria },
   { path: '/', component: HomePage },
-  { path: '/login', component: LoginForm },
   //{ path: '/:rol', component: Dashboard },
   { path: '/como-funciona', component: ComoFunciona},
   { path: '/about', component: About},
   { path: '/docente/historial', component: Historial},
   { path: '/docente/ranking', component: Ranking},
   { path: '/alumno/resultados', component: ResultadosAlumno},
-  //{ path: '/', component: LoginForm },
   { path: '/alumno', component: AlumnoDashboard},
   { path: '/docente', component: DocenteDashboard},
 ];

@@ -3,7 +3,9 @@
     <h1>Bienvenido, Alumno {{ nombreUsuario }}</h1>
 
         <div class="botones">
-            <button @click="hacerEnsayo">Realizar Ensayo</button>
+            <RouterLink to="/alumno/materias">
+                <button>Realizar Ensayo</button>
+            </RouterLink>
             <button @click="verResultados">Ver Resultados</button>
             <button @click="logout">Cerrar Sesión</button>
         </div>
@@ -18,10 +20,6 @@ export default {
         }
     },
     methods: {
-        hacerEnsayo() {
-        // Aquí irá navegación o funcionalidad real
-            alert("Funcionalidad para hacer ensayos próximamente.");
-        },
         verResultados() {
             alert("Aquí se mostrarán tus resultados.");
         },

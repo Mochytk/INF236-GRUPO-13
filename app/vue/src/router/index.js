@@ -11,7 +11,6 @@ import AlumnoDashboard from '../components/AlumnoDashboard.vue';
 import DocenteDashboard from '../components/DocenteDashboard.vue';
 
 const routes = [
-  { path: '/materias', component: SeleccionarMateria },
   { path: '/', component: HomePage },
   //{ path: '/:rol', component: Dashboard },
   { path: '/como-funciona', component: ComoFunciona},
@@ -19,6 +18,7 @@ const routes = [
   { path: '/docente/historial', component: Historial},
   { path: '/docente/ranking', component: Ranking},
   { path: '/alumno/resultados', component: ResultadosAlumno},
+  { path: '/alumno/materias', component: SeleccionarMateria },
   { path: '/alumno', component: AlumnoDashboard},
   { path: '/docente', component: DocenteDashboard},
 ];

@@ -1,8 +1,8 @@
 <template>
   <div class="fondo-pizarra">
     <LoginForm />
-    <VolverButton v-if="$route.path !== '/' && $route.path !== '/acceso-restringido'" />
     <router-view />
+    <VolverButton v-if="$route.path !== '/' && $route.path !== '/acceso-restringido'" class="volver-inferior" />
   </div>
 </template>
 
@@ -23,6 +23,15 @@ html, body {
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
+
+.volver-inferior {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 1000;
+}
+
+
 </style>
 
 <script setup>

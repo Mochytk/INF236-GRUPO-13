@@ -13,7 +13,7 @@
       <button class="cerrar-sesion" @click="logout">Cerrar sesión</button>
     </div>
   </div>
-  <div v-if="mostrarResultados" class="resultados-contenedor">
+<div v-if="mostrarResultados" class="resultados-contenedor">
   <!-- Globo de búsqueda -->
   <div class="globo-busqueda">
     <label for="curso">Curso:</label>
@@ -57,6 +57,15 @@
     </div>
   </div>
 </div>
+<div v-else class="creador-ensayos">
+  <h1>Crear ensayo</h1>
+  <p>Funcionalidad para crear ensayo próximamente.</p>
+  <div class="botones">
+    <RouterLink to="/docente/creador-ensayos">
+      <button>Crear nuevo ensayo</button>
+    </RouterLink>
+  </div>
+</div>
 
 
 </template>
@@ -71,15 +80,15 @@ export default {
       { nombre: 'José', apellido: 'Yañez', puntaje: 750 },
       { nombre: 'Martín', apellido: 'Ferrera', puntaje: 930 },
       { nombre: 'Rodrigo', apellido: 'Caceres', puntaje: 1000 },
-      { nombre: 'Sergio', apellido: 'Rojas', puntaje: 600 },
-      { nombre: 'Jaime', apellido: 'Donoso', puntaje: 0 },
+      { nombre: 'Sergio', apellido: 'Rojas', puntaje: 640 },
+      { nombre: 'Jaime', apellido: 'Donoso', puntaje: 100 },
       { nombre: 'Dan', apellido: 'Gonzalez', puntaje: 820 },
       { nombre: 'Alonso', apellido: 'Fuenzalida', puntaje: 470 },
-      { nombre: 'Sebastian', apellido: 'Albornoz', puntaje: -1 },
-      { nombre: 'Ricardo', apellido: 'Salas', puntaje: 2000 },
-      { nombre: 'José Luis', apellido: 'Martí', puntaje: 0 },
+      { nombre: 'Sebastian', apellido: 'Albornoz', puntaje: 220 },
+      { nombre: 'Ricardo', apellido: 'Salas', puntaje: 1000 },
+      { nombre: 'José Luis', apellido: 'Martí', puntaje: 160 },
       { nombre: 'Viktor', apellido: 'Tapia', puntaje: 100 },
-      { nombre: 'Mauricio', apellido: 'Solar', puntaje: 101 },
+      { nombre: 'Mauricio', apellido: 'Solar', puntaje: 120 },
     ],
     }
   },

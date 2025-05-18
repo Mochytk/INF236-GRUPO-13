@@ -12,12 +12,12 @@
       <div class="login">
         <h2>Iniciar Sesión</h2>
         <form @submit.prevent="login">
-          <div>
+          <div class="entrada">
             <label for="email">Correo: </label>
             <input type="email" v-model="email" required />
           </div>
 
-          <div>
+          <div class="entrada">
             <label for="password">Contraseña: </label>
             <input type="password" v-model="contraseña" required />
           </div>
@@ -138,28 +138,29 @@ export default {
   gap: 15px;
 }
 
-.login-label {
-  font-size: 1.4em;
-  font-weight: bold;
+.entrada {
+  display: flex;
+  align-items: center;
   margin-bottom: 10px;
 }
-
-.login-input {
-  width: 200px;
-  height: 45px;
+.entrada label {
+  width: 110px;
+  text-align: right;
+  margin-right: 10px;
+}
+.entrada input {
+  flex: 1;
   font-size: 1.1em;
-  background-color: #145a32;
-  color: white;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
+  padding: 6px 10px;
 }
 
 .info-botones {
   margin-top: 50px;
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 10px;
+  flex-direction: column;
+  align-items: center;
   flex-wrap: wrap;
 }
 
@@ -187,17 +188,6 @@ export default {
 .secondary-button {
   background-color: #ecf0f1;
   color: #2c3e50;
-}
-
-.acceso-provisorio {
-  margin-top: 10px;
-  background-color: #2ecc71;
-  color: white;
-  padding: 10px 18px;
-  border: none;
-  border-radius: 10px;
-  font-size: 1em;
-  cursor: pointer;
 }
 
 </style>

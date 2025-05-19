@@ -47,7 +47,20 @@ Nota: el comando `npm install` solo es necesario para la primera ejecución.
 
 Finalmente para acceder a la página se debe copiar la url que se indice en 'Local:', y pegarla en su buscador de preferencia donde se podrá navegar como desee.
 
+### Credenciales de inicio de sesión en la página web
+Por el momento existen 2 perfiles para iniciar sesión. Ambos usuarios fueron hechos con el fin de testear el funcionamiento de la página:
 
+  1)Usuario 'Docente':
+  
+    Correo: hola@hotmail.com
+    
+    Contraseña: rodrigoat
+    
+  2)Usuario 'Alumno':
+  
+    Correo: a@a.com 
+    
+    Contraseña: estudiante
 
 ### Posibles errores y sus soluciones
   1)

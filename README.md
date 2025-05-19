@@ -30,6 +30,7 @@ Una vez cumplidos estos requisitos, se deberán ejecutar los siguientes comandos
 - `pip install djangorestframework`
 - `pip install django-cors-headers`
 - `pip install djangorestframework-simplejwt`
+- `python -m pip install Pillow` ¡¡¡NUEVO!!!  
 
 ### Desplegar el proyecto
 Una vez finalizada la configuración inicial, debemos hacer funcionar la página. Para ello, lo primero será inicializar el backend (Django + Django REST), para lo cual abrimos la terminal desde la carpeta "paes" y ejecutamos el siguiente comando:
@@ -45,6 +46,7 @@ Luego, debemos iniciar el frontend (Vue), para lo cual abrimos una terminal en l
 Nota: el comando `npm install` solo es necesario para la primera ejecución.
 
 Finalmente para acceder a la página se debe copiar la url que se indice en 'Local:', y pegarla en su buscador de preferencia donde se podrá navegar como desee.
+
 
 
 ### Posibles errores y sus soluciones

@@ -16,7 +16,7 @@
                     <option value="Historia">Historia</option>
                 </select>
             </div>
-            <button class="boton" type="submit">Crear Ensayo</button>
+            <button class="boton" type="submit" @click="alerta()">Crear Ensayo</button>
         </form>
     </div>
 </template>
@@ -43,6 +43,10 @@ export default {
         }
     }
 };
+
+function alerta() {
+    alert("Ensayo creado exitosamente.");
+}
 </script>
 
 <style scoped>

@@ -21,6 +21,7 @@
       <option>2do medio A</option>
       <option>2do medio B</option>
       <option>3ro medio</option>
+      <option>4to medio</option>
     </select>
 
     <label for="prueba">N° prueba:</label>
@@ -150,6 +151,14 @@ export default {
 
 .bienvenida {
   font-size: 1.2em;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.creador-ensayos {
+  text-align: center;
+  padding: 40px;
+  color: white;
+  font-family: 'Segoe UI', sans-serif;
 }
 
 .nav-botones {
@@ -292,7 +301,6 @@ export default {
   height: fit-content;
   margin-top: 20px;
 }
-
 .promedio-box input {
   margin-top: 10px;
   width: 100px;

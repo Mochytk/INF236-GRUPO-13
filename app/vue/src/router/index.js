@@ -10,6 +10,7 @@ import AlumnoDashboard from '../components/AlumnoDashboard.vue';
 import DocenteDashboard from '../components/DocenteDashboard.vue';
 import Restringido from '../components/Restringido.vue';
 import CreadordeEnsayos from '@/components/CreadordeEnsayos.vue';
+import EditordeEnsayos from '@/components/EditordeEnsayos.vue';
 
 const routes = [
   { path: '/', component: HomePage },
@@ -24,6 +25,8 @@ const routes = [
   { path: '/docente', component: DocenteDashboard},
   { path: '/acceso-restringido', component: Restringido},
   { path: '/docente/creador-ensayos', component: CreadordeEnsayos},
+  { path: '/docente/editor-ensayos', component: EditordeEnsayos},
+  { path: '/docente/editor-ensayos/:id', component: EditordeEnsayos, props: true},
 ];
 
 const router = createRouter({

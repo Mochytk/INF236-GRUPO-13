@@ -31,5 +31,4 @@ urlpatterns = [
     path('api-auth/', include('rest_framework.urls')),
     path('api/login/', LoginAPIView.as_view(), name='login'),
     path('current_user/', current_user, name='current_user'),
-    path('api/login/', LoginAPIView.as_view(), name='login'),
 ]

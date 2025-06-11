@@ -31,11 +31,19 @@ html, body {
   z-index: 1000;
 }
 
+@media (max-width: 600px) {
+  .fondo-pizarra {
+    background-size: cover;
+  }
+  .volver-inferior {
+    bottom: 10px;
+    left: 10px;
+  }
+}
 
 </style>
 
 <script setup>
-import VolverButton from './components/VolverButton.vue';
-//import LoginForm from './components/LoginForm.vue';
+  import VolverButton from './components/VolverButton.vue';
 </script>
 

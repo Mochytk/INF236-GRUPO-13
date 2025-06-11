@@ -60,10 +60,13 @@
 </div>
 <div v-else class="creador-ensayos">
   <h1>Crear ensayo</h1>
-  <p>Funcionalidad para crear ensayo próximamente.</p>
+  <p>Nota: la funcionalidad para crear ensayos está en desarrollo.</p>
   <div class="botones">
     <RouterLink to="/docente/creador-ensayos">
       <button>Crear nuevo ensayo</button>
+    </RouterLink>
+    <RouterLink to="/docente/editor-ensayos">
+      <button>Editar ensayo</button>
     </RouterLink>
   </div>
 </div>

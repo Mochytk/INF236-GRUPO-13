@@ -11,6 +11,7 @@ import DocenteDashboard from '../components/DocenteDashboard.vue';
 import Restringido from '../components/Restringido.vue';
 import CreadordeEnsayos from '@/components/CreadordeEnsayos.vue';
 import EditordeEnsayos from '@/components/EditordeEnsayos.vue';
+import Ensayo from '@/components/Ensayo.vue';
 
 const routes = [
   { path: '/', component: HomePage },
@@ -26,6 +27,7 @@ const routes = [
   { path: '/acceso-restringido', component: Restringido},
   { path: '/docente/creador-ensayos', component: CreadordeEnsayos},
   { path: '/docente/editor-ensayos', component: EditordeEnsayos},
+  { path: '/alumno/ensayo', component: Ensayo},
   { path: '/docente/editor-ensayos/:id', component: EditordeEnsayos, props: true},
 ];
 

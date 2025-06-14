@@ -18,6 +18,8 @@
             </div>
             <button class="boton" type="submit" @click="alerta()">Crear Ensayo</button>
         </form>
+        <p>Nota: Aún hay problemas con la comunicación con el backend, por lo que esta sección aún no funciona apropiadamente
+            (queda pendiente para el Hito 5).</p>
     </div>
 </template>
 
@@ -36,6 +38,21 @@ export default {
     },
     methods: {
         crearEnsayo() {
+            axios.post('http://127.0.1:8000/api/', this.ensayo, {
+                headers: {
+                    Authorization: `Bearer ${localStorage.getItem('token')}`
+                }
+            })
+            .then(response => {
+                console.log("Ensayo creado exitosamente:", response.data);
+                this.ensayo = { nombre: '', materia: '', creador: this.obtenerCreador() }; // Resetear formulario
+                alert("Ensayo creado exitosamente.");
+                this.$router.push('/docente/editor-ensayos'); // Redirigir al editor de ensayos
+            })
+            .catch(error => {
+                console.error("Error al crear el ensayo:", error);
+                alert("Error al crear el ensayo. Por favor, inténtalo de nuevo.");
+            });
             console.log('Ensayo creado:', this.ensayo);
         },
         obtenerCreador() {
@@ -43,10 +60,6 @@ export default {
         }
     }
 };
-
-function alerta() {
-    alert("Ensayo creado exitosamente.");
-}
 </script>
 
 <style scoped>

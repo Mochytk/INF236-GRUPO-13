@@ -1,29 +1,23 @@
 <template>
-    <div class="editor">
-        <h1>Editor de Ensayos</h1>
-        <p>Nota: la funcionalidad para editar ensayos está en desarrollo.</p>
-        <button class="boton" @click="mostrar">Mostrar Ensayos</button>
-        <p>Haz clic en el botón para mostrar los ensayos disponibles.</p>
-        <p>Recuerda que esta funcionalidad está en desarrollo y puede no estar completamente implementada.</p>
-
-        <div v-if="mostrarTabla">
-            <table class="tabla-ensayos">
-                <thead>
-                    <tr>
-                        <th>Nombre</th>
-                        <th>Materia</th>
-                        <th>Creador</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr v-for="ensayo in ensayos" :key="ensayo.id">
-                        <td>{{ ensayo.nombre }}</td>
-                        <td>{{ ensayo.materia }}</td>
-                        <td>{{ ensayo.creador }}</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+    <div class="crear_ensayos">
+        <h1>Crear Ensayos</h1>
+        <form @submit.prevent="crearEnsayo">
+            <div>
+                <label for="nombre">Nombre del ensayo: </label>
+                <input type="text" id="nombre" v-model="ensayo.nombre" required />
+            </div>
+            <div>
+                <label for="materia">Materia: </label>
+                <select id="materia" v-model="ensayo.materia" required>
+                    <option value="" disabled selected>Selecciona una materia</option>
+                    <option value="Matematicas">Matemáticas</option>
+                    <option value="Lenguaje">Lenguaje</option>
+                    <option value="Ciencias">Ciencias</option>
+                    <option value="Historia">Historia</option>
+                </select>
+            </div>
+            <button class="boton" type="submit" @click="alerta()">Crear Ensayo</button>
+        </form>
     </div>
 </template>
 
@@ -41,30 +35,11 @@ export default {
         };
     },
     methods: {
-        async crearEnsayo() {
-        try {
-            const response = await axios.post('http://127.0.0.1:8000/api/', this.ensayo, {
-                headers: {
-                    'Authorization': `Bearer ${localStorage.getItem('token')}`
-                }
-            });
-            alert("Ensayo creado exitosamente.");
-            // Opcional: limpiar el formulario o redirigir
-            this.ensayo.nombre = '';
-            this.ensayo.materia = '';
-        } catch (error) {
-            alert("Error al crear el ensayo.");
-            console.error(error);
-        }
-    },
+        crearEnsayo() {
+            console.log('Ensayo creado:', this.ensayo);
+        },
         obtenerCreador() {
             return localStorage.getItem('username') || 'Docente';
-        }
-    },
-    mounted() {
-        // Protección: si no está logeado, redirige
-        if (!localStorage.getItem('token')) {
-            this.$router.push('/acceso-restringido');
         }
     }
 };

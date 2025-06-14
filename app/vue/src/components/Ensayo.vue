@@ -39,13 +39,13 @@ const preguntas = ref([
     correcta: 'Santiago',
   },
   {
-    texto: '¿Cuál de las siguientes alternativas es el más grande de Chile?',
-    opciones: ['El costanera', 'Arturo Vidal', 'Universidad de Chi(c)le', 'Colo-Colo'],
-    correcta: 'Colo-Colo',
+    texto: '¿Cuál de estos no es un país?',
+    opciones: ['Letonia', 'Argentina', 'Sarajevo', 'Burkina Faso'],
+    correcta: 'Sarajevo',
   },
   {
     texto: '¿Quién fundó la Universidad Técnica Federico Santa María?',
-    opciones: ['Federico Santa María', 'Técnica', 'Pedro Aguirre Cerda', 'Ninguno de los anteriores'],
+    opciones: ['Federico Santa María', 'Andrés Bello', 'Pedro Aguirre Cerda', 'Ninguno de los anteriores'],
     correcta: 'Federico Santa María',
   },
 ]);

@@ -1,6 +1,7 @@
 <template>
     <div class="dashboard-container">
-    <h1>Bienvenido, Alumno {{ nombreUsuario }}</h1>
+    <h1>Bienvenido, {{ nombreUsuario }}</h1>
+    <p>Rol: Alumno</p>
 
         <div class="botones">
             <RouterLink to="/alumno/materias">
@@ -30,7 +31,9 @@ export default {
     },
     mounted() {
       // Protección: si no está logeado, redirige
-    if (!localStorage.getItem('token')) {
+    if (!localStorage.getItem('token') || localStorage.getItem('rol') !== 'alumno') {
+        console.warn('Acceso restringido: no tienes permiso para ver esta página.');
+        alert('Acceso restringido: no tienes permiso para ver esta página.');
         this.$router.push('/acceso-restringido');
         }
     }
@@ -39,6 +42,8 @@ export default {
 
 <style scoped>
 .dashboard-container {
+    font-family: 'Segoe UI', sans-serif;
+    color: white;
     text-align: center;
     padding: 40px;
     color: white;

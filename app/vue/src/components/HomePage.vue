@@ -178,16 +178,23 @@ export default {
   border: none;
   border-radius: 8px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .main-button {
   background-color: #3498db;
   color: white;
 }
+.main-button:hover {
+  background-color: #2980b9;
+}
 
 .secondary-button {
   background-color: #ecf0f1;
   color: #2c3e50;
+}
+.secondary-button:hover {
+  background-color: #bdc3c7;
 }
 
 </style>

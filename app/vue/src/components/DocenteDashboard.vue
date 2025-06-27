@@ -3,7 +3,7 @@
     <!--Barra suprior-->
     <div class="barra-superior">
       <span class="bienvenida">
-        Bienvenido, docente {{ nombreUsuario }}
+        Bienvenido, {{ nombreUsuario }}
       </span>
       <div class="nav-botones">
         <button class="nav-btn" @click="mostrarSeccionResultados">Ver resultados</button>
@@ -60,7 +60,7 @@
 </div>
 <div v-else class="creador-ensayos">
   <h1>Crear ensayo</h1>
-  <p>Nota: la funcionalidad para crear ensayos está en desarrollo.</p>
+  <p>Nota: la funcionalidad para crear y editar ensayos está en desarrollo.</p>
   <div class="botones">
     <RouterLink to="/docente/creador-ensayos">
       <button>Crear nuevo ensayo</button>
@@ -129,7 +129,9 @@ export default {
   },
   mounted() {
     // Protección: si no está logeado, redirige
-    if (!localStorage.getItem('token')) {
+    if (!localStorage.getItem('token') || localStorage.getItem('rol') !== 'docente') {
+      console.warn('Acceso restringido: no tienes permiso para ver esta página.');
+      alert('Acceso restringido: no tienes permiso para ver esta página.');
       this.$router.push('/acceso-restringido');
     }
   }

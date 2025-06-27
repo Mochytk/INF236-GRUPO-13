@@ -21,6 +21,11 @@
     border: none;
     border-radius: 8px;
     cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  .volver:hover {
+    background-color: #95a5a6;
+    transform: scale(1.02);
   }
   </style>
   

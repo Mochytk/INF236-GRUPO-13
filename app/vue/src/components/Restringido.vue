@@ -9,6 +9,12 @@
         <RouterLink to="/">
             <button>Regresar al inicio</button>
         </RouterLink>
+        <RouterLink v-if="rol === 'docente'" to="/docente">
+            <button>Volver al apartado de Docente</button>
+        </RouterLink>
+        <RouterLink v-else-if="rol === 'alumno'" to="/alumno">
+            <button>Volver al apartado de Alumno</button>
+        </RouterLink>
     </div>
 </template>
 
@@ -19,6 +25,19 @@
     min-height: 100vh;
     font-family: 'Segoe UI', sans-serif;
     text-align: center;
+}
+
+button {
+    background-color: #3498db;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+button:hover {
+    background-color: #2980b9;
 }
 
 </style>

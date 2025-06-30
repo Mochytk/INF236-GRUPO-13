@@ -1,6 +1,11 @@
 <template>
   <div class="ensayo-container">
     <h1>Ensayo de {{ materia }}</h1>
+    <p>Tiempo estimado: 40 minutos</p>
+    <p>Preguntas: {{ preguntas.length }}</p>
+    <div :class="temporizadorClase">
+      <p id="t"></p>
+    </div>
 
     <div v-for="(pregunta, index) in preguntas" :key="index" class="pregunta-box">
       <p><strong>{{ index + 1 }}. {{ pregunta.texto }}</strong></p>
@@ -53,6 +58,8 @@ const preguntas = ref([
 const respuestas = ref({});
 const puntaje = ref(null);
 
+const temporizadorClase = ref('temporizador');
+
 function finalizarEnsayo() {
   let correctas = 0;
 
@@ -64,6 +71,42 @@ function finalizarEnsayo() {
 
   puntaje.value = Math.floor((correctas / preguntas.value.length) * 1000);
 }
+
+function iniciarTemporizador() {
+  let tiempoRestante = 2400; // tiempo en segundos (por defecto: 40 minutos)
+  const temporizador = document.getElementById('t');
+
+  const intervalo = setInterval(() => {
+    if (tiempoRestante <= 0) {
+      clearInterval(intervalo);
+      finalizarEnsayo();
+      return;
+    }
+
+    if (tiempoRestante <= 300) {
+      if (tiempoRestante <= 60) {
+        temporizadorClase.value = 'temporizador alerta-tiempo unminuto';
+      } else {
+        temporizadorClase.value = 'temporizador alerta-tiempo';
+      }
+    }
+    else {
+      temporizadorClase.value = 'temporizador';
+    }
+
+    if (tiempoRestante === 60) {
+      alert('¡Queda un minuto! Por favor, finaliza el ensayo.');
+    }
+
+    const minutos = Math.floor(tiempoRestante / 60);
+    const segundos = tiempoRestante % 60;
+    temporizador.textContent = `Tiempo restante: ${minutos} min ${segundos} seg`;
+    tiempoRestante--;
+  }, 1000);
+}
+onMounted(() => {
+  iniciarTemporizador();
+});
 </script>
 
 <style scoped>
@@ -71,6 +114,7 @@ function finalizarEnsayo() {
   color: white;
   padding: 40px;
   text-align: center;
+  font-family: 'Segoe UI', sans-serif;
 }
 
 .pregunta-box {
@@ -108,5 +152,22 @@ function finalizarEnsayo() {
   color: black;
   padding: 20px;
   border-radius: 10px;
+}
+
+.temporizador {
+  margin-bottom: 20px;
+  font-size: 18px;
+  color: #f39c12;
+}
+.alerta-tiempo {
+  color: red;
+  font-weight: bold;
+}
+.unminuto {
+  animation: parpadeo 1s infinite;
+}
+@keyframes parpadeo {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
 }
 </style>

@@ -7,7 +7,9 @@
             <RouterLink to="/alumno/materias">
                 <button>Realizar Ensayo</button>
             </RouterLink>
-            <button @click="verResultados">Ver Resultados</button>
+            <RouterLink to="/alumno/resultados">
+                <button>Ver Resultados</button>
+            </RouterLink>
             <button @click="logout">Cerrar Sesión</button>
         </div>
     </div>

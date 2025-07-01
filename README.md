@@ -33,7 +33,7 @@ Una vez cumplidos estos requisitos, se deberán ejecutar los siguientes comandos
 - `pip install djangorestframework-simplejwt`
 - `python -m pip install Pillow` ¡¡¡NUEVO!!!  
 
-### Desplegar el proyecto
+### Desplegar el proyecto (Sin Docker)
 Una vez finalizada la configuración inicial, debemos hacer funcionar la página. Para ello, lo primero será inicializar el backend (Django + Django REST), para lo cual abrimos la terminal desde la carpeta "paes" y ejecutamos el siguiente comando:
 
 `python manage.py runserver`
@@ -47,6 +47,22 @@ Luego, debemos iniciar el frontend (Vue), para lo cual abrimos una terminal en l
 Nota: el comando `npm install` solo es necesario para la primera ejecución.
 
 Finalmente para acceder a la página se debe copiar la url que se indice en 'Local:', y pegarla en su buscador de preferencia donde se podrá navegar como desee.
+
+### Desplegar el proyecto (Con Docker) ¡¡¡NUEVO!!!
+Este nuevo método necesita tener el software 'Docker-Desktop' instalado (link para su instalación: https://www.docker.com/products/docker-desktop/). Se sigue un procedimiento similar: primero abrimos la terminal y nos dirigimos a la carpeta 'app', una vez ahí se ejecuta el siguiente comando que desplegará automáticamente tanto el backend como el frontend del proyecto:
+
+`docker-compose up --build`
+
+Une vez hecho eso use los siguientes links en su navegador de preferencia para acceder a lo que deseé:
+
+`http://localhost:5173/` -> Frontend
+
+`http://localhost:8000/` -> Backend (en proceso)
+
+`http://localhost:8000/api/login/` -> API Login
+
+`http://127.0.0.1:8000/admin/login/?next=/admin/` -> Login para el administrador
+
 
 ### Credenciales de inicio de sesión en la página web
 Por el momento existen 2 perfiles para iniciar sesión. Ambos usuarios fueron hechos con el fin de testear el funcionamiento de la página:

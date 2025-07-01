@@ -12,6 +12,7 @@ Puede acceder a la Wiki mediante el siguiente [enlace](https://github.com/Mochyt
 
 ## Videos
 * [Video Hito 3](https://youtu.be/u5LrkK-0U38)
+* [Video Hito 5](https://youtu.be/ra4RlnNAZF0)
 
 ## Aspectos técnicos relevantes
 ### Configuración inicial
